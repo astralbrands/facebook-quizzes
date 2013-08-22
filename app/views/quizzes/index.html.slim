@@ -1,0 +1,7 @@
+h1 Quiz View
+
+- for quiz in @quizzes
+	= link_to quiz.name, [:edit, quiz]
+	div = quiz.intro
+
+= link_to "New Quiz", new_quiz_path

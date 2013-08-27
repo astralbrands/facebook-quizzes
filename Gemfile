@@ -10,11 +10,7 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem 'pg'
 gem 'paperclip', :git => "git://github.com/thoughtbot/paperclip.git"
 
-# Use SCSS for stylesheets
-gem 'less-rails'
-
 # Use liquid for html templating
-gem 'liquid'
 gem 'slim-rails'
 
 # Use Uglifier as compressor for JavaScript assets
@@ -26,7 +22,6 @@ gem 'coffee-rails'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 gem 'therubyracer', platforms: :ruby
 
-gem 'angular-rails'
 gem 'jquery-rails', git: 'git://github.com/rails/jquery-rails.git'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

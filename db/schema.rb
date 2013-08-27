@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130819163447) do
+ActiveRecord::Schema.define(version: 20130826193152) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "answers", force: true do |t|
     t.string   "content"
@@ -21,8 +24,8 @@ ActiveRecord::Schema.define(version: 20130819163447) do
     t.datetime "updated_at"
   end
 
-  add_index "answers", ["category_id"], name: "index_answers_on_category_id"
-  add_index "answers", ["question_id"], name: "index_answers_on_question_id"
+  add_index "answers", ["category_id"], name: "index_answers_on_category_id", using: :btree
+  add_index "answers", ["question_id"], name: "index_answers_on_question_id", using: :btree
 
   create_table "categories", force: true do |t|
     t.string   "title"
@@ -40,16 +43,17 @@ ActiveRecord::Schema.define(version: 20130819163447) do
     t.datetime "share_img_updated_at"
   end
 
-  add_index "categories", ["quiz_id"], name: "index_categories_on_quiz_id"
+  add_index "categories", ["quiz_id"], name: "index_categories_on_quiz_id", using: :btree
 
   create_table "questions", force: true do |t|
     t.string   "text"
     t.integer  "quiz_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "weight"
   end
 
-  add_index "questions", ["quiz_id"], name: "index_questions_on_quiz_id"
+  add_index "questions", ["quiz_id"], name: "index_questions_on_quiz_id", using: :btree
 
   create_table "quizzes", force: true do |t|
     t.text     "intro"

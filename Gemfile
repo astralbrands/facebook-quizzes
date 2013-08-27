@@ -1,3 +1,4 @@
+ruby "2.0.0"
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -5,8 +6,8 @@ gem 'rails', '4.0.0'
 gem 'thin'
 gem 'dotenv-rails', groups: [:development, :test]
 
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# Use postgresql as the database for Active Record
+gem 'pg'
 gem 'paperclip', :git => "git://github.com/thoughtbot/paperclip.git"
 
 # Use SCSS for stylesheets
@@ -33,6 +34,7 @@ gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
+gem "koala", git: 'git://github.com/arsduo/koala'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -46,6 +48,8 @@ gem 'compass-rails', "~> 2.0.alpha.0"
 group :development do
   gem 'pry-rails'
 end
+
+gem 'rails_12factor', group: :production
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

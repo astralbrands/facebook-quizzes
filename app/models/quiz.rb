@@ -15,12 +15,13 @@ class Quiz < ActiveRecord::Base
   end
 
   def last?(question)
-    question.id == questions.size
+    questions.index(question) + 1 == questions.size
   end
 
   def get_results(answers)
     results = {}
-    categories.each {|c| results[c.id] = answers.values.count(c.id) }
+    categories.each {|c| results[c.id] = 0 }
+    answers.each {|k, v| results[v] += Question.find(k.gsub(/question_/, '').to_i).weight }
     most_responded_category = results.max_by{|k, v| v }.first
     return categories.find most_responded_category
   end

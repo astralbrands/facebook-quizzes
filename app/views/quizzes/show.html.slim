@@ -1,9 +1,9 @@
 html
 	head
 	body
-		.container
-			.quiz-banner = image_tag @quiz.banner.url
-			.content
+		.center
+			.banner-img = image_tag @quiz.banner.url
+			.intro-content
 				.quiz-intro = @quiz.intro
 				.get-started
 					= link_to "Get Started", [@quiz, @quiz.questions.first]

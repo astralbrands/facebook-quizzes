@@ -1,4 +1,13 @@
 GIT
+  remote: git://github.com/arsduo/koala
+  revision: 848f6cfea263f91bee69d776950623157bb2f0e0
+  specs:
+    koala (1.7.0rc1)
+      addressable
+      faraday
+      multi_json
+
+GIT
   remote: git://github.com/rails/jquery-rails.git
   revision: f79e8f178f8358c57f6faf65f72c7b0bbfb42f65
   specs:
@@ -51,6 +60,7 @@ GEM
       multi_json (~> 1.3)
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
+    addressable (2.3.5)
     angular-rails (0.0.12)
       coffee-script (~> 2.2.0)
       rails
@@ -85,6 +95,8 @@ GEM
     eventmachine (1.0.3)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    faraday (0.8.8)
+      multipart-post (~> 1.2.0)
     fssm (0.2.10)
     hike (1.2.3)
     i18n (0.6.4)
@@ -106,6 +118,8 @@ GEM
     mime-types (1.23)
     minitest (4.7.5)
     multi_json (1.7.9)
+    multipart-post (1.2.0)
+    pg (0.16.0)
     polyglot (0.3.3)
     pry (0.9.12.2)
       coderay (~> 1.0.5)
@@ -124,6 +138,11 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.0.0)
       sprockets-rails (~> 2.0.0)
+    rails_12factor (0.0.2)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.1)
+    rails_stdout_logging (0.0.1)
     railties (4.0.0)
       actionpack (= 4.0.0)
       activesupport (= 4.0.0)
@@ -159,7 +178,6 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
-    sqlite3 (1.3.7)
     temple (0.6.6)
     therubyracer (0.11.4)
       libv8 (~> 3.11.8.12)
@@ -193,15 +211,17 @@ DEPENDENCIES
   dotenv-rails
   jbuilder (~> 1.2)
   jquery-rails!
+  koala!
   less-rails
   liquid
   paperclip!
+  pg
   pry-rails
   rails (= 4.0.0)
+  rails_12factor
   sass-rails
   sdoc
   slim-rails
-  sqlite3
   therubyracer
   thin
   turbolinks

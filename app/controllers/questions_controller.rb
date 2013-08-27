@@ -15,7 +15,8 @@ class QuestionsController < ApplicationController
     @question = Question.find params[:id]
     @category = Answer.find(params[:answer_id]).category
     session["question_#{params[:id]}"] = @category.id
-    redirect_to quiz_question_path id: (params[:id].to_i + 1) and return unless @quiz.last?(@question)
+    next_question = @quiz.questions[@quiz.questions.index(@question) + 1]
+    redirect_to quiz_question_path id: next_question.id and return unless @quiz.last?(@question)
     redirect_to quiz_finish_path
   end
 
@@ -32,12 +33,11 @@ class QuestionsController < ApplicationController
     @quiz = @question.quiz
     @question.answers.destroy
     @question.destroy
-    binding.pry
     redirect_to edit_quiz_url(@quiz)
   end
 
   private
     def question_params
-      params.require(:question).permit(:text)
+      params.require(:question).permit(:text, :weight)
     end
 end

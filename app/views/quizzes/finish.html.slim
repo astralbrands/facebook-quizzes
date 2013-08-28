@@ -11,5 +11,7 @@ html
 					a href="http://www.youtube.com/watch?v=gwPwqvYZFMY"
 						= image_tag @quiz.product_img_url
 				.copy
-					p == @quiz.product_copy
+					p 
+						== @quiz.product_copy
+					p: a href="http://www.youtube.com/watch?v=gwPwqvYZFMY" See it here
 			p Share the results with your friends!

@@ -28,6 +28,10 @@ class Quiz < ActiveRecord::Base
     "/artwork/#{id}/banner.jpg"
   end
 
+  def product_img_url
+    "/artwork/#{id}/product.jpg"
+  end
+
   def categories
     original_categories.order "id asc"
   end

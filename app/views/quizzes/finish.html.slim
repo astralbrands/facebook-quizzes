@@ -4,8 +4,11 @@ html
 		.center
 			.finish-img
 				= image_tag @category.display_img_url
-			p = @category.text
+			p == @category.text
 			p Shop now link
-			= image_tag @quiz.product_img.url
-			p = @quiz.product_copy
+			.product-placement
+				.image
+					= image_tag @quiz.product_img_url
+				.copy
+					p == @quiz.product_copy
 			| Share the results with your friends!

@@ -4,7 +4,7 @@ html
 		.center
 			.banner-img
 				= image_tag @quiz.banner_url
-			h3 = @question.text
+			h3 == @question.text
 			.answers
 				= form_tag respond_quiz_question_path, method: 'post' do
 					- for answer in @question.answers

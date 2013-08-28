@@ -5,10 +5,11 @@ html
 			.finish-img
 				= image_tag @category.display_img_url
 			p == @category.text
-			p Shop now link
+			a href="http://www.aloette.com" Shop now >
 			.product-placement
 				.image
-					= image_tag @quiz.product_img_url
+					a href="http://www.youtube.com/watch?v=gwPwqvYZFMY"
+						= image_tag @quiz.product_img_url
 				.copy
 					p == @quiz.product_copy
-			| Share the results with your friends!
+			p Share the results with your friends!

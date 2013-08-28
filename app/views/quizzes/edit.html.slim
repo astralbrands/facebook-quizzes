@@ -11,7 +11,10 @@
 				= f.submit class: "btn btn-default"
 				= link_to "View", @quiz, class: "form-control btn btn-default", id: "quiz-link"
 			.form-group.quiz-text-group
+				.intro.textarea-label Quiz Intro
 				= f.text_area :intro, class: 'form-control'
+				.copy.textarea-label Product Copy
+				= f.text_area :product_copy, class: 'form-control product-copy', placeholder: "Enter Copy for product placement"
 	#questions.row
 		h2 Questions
 		- for question in @quiz.questions

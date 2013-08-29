@@ -17,11 +17,11 @@ class Quiz < ActiveRecord::Base
   end
 
   def last?(question)
-    questions.index(question) + 1 == questions.size
+    questions.max_by{|q| q.sequence } == question
   end
 
   def questions
-    original_questions.order "id asc"
+    original_questions.order "sequence asc"
   end
 
   def banner_url
@@ -39,7 +39,14 @@ class Quiz < ActiveRecord::Base
   def get_results(answers)
     results = {}
     categories.each {|c| results[c.id] = 0 }
-    answers.each {|k, v| results[v] += Question.find(k.gsub(/question_/, '').to_i).weight }
+    answers.each do |k, v|
+      question = Question.find{|q| q.sequence == k.gsub(/question_/, '').to_i}
+      answer = question.answers.find{|a| a.sequence == v }
+      weight = question.weight
+      category = answer.category
+      x = {question: question, answer: answer, weight: weight, category: category}
+      results[category.id] += weight
+    end
     most_responded_category = results.max_by{|k, v| v }.first
     return categories.find most_responded_category
   end

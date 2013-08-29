@@ -20,10 +20,10 @@ class AnswersController < ApplicationController
 
   private
     def answer_params
-      params.require(:answer).permit(:content, :category)
+      params.require(:answer).permit(:content, :category, :sequence)
     end
 
     def update_params
-      params.require(:answer).permit(:content)
+      params.require(:answer).permit(:content, :sequence)
     end
 end

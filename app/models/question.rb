@@ -8,7 +8,7 @@ class Question < ActiveRecord::Base
   end
 
   def answers
-    original_answers.order "id asc"
+    original_answers.order "sequence asc"
   end
 
   def number

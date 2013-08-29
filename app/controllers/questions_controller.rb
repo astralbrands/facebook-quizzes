@@ -13,9 +13,10 @@ class QuestionsController < ApplicationController
   def respond
     @quiz = Quiz.from_param params[:quiz_id]
     @question = Question.find params[:id]
-    @category = Answer.find(params[:answer_id]).category
+    @answer = @question.answers.find{|a| a.sequence == params[:answer_id].to_i }
+    @category = @answer.category
     session["question_#{params[:id]}"] = @category.id
-    next_question = @quiz.questions[@quiz.questions.index(@question) + 1]
+    next_question = @quiz.questions.find{|q| q.sequence == @question.sequence + 1 }
     redirect_to quiz_question_path id: next_question.id and return unless @quiz.last?(@question)
     redirect_to quiz_finish_path
   end
@@ -38,6 +39,6 @@ class QuestionsController < ApplicationController
 
   private
     def question_params
-      params.require(:question).permit(:text, :weight)
+      params.require(:question).permit(:text, :weight, :sequence)
     end
 end

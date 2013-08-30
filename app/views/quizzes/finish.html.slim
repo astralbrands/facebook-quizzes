@@ -1,21 +1,22 @@
-html
-	head
-		= javascript_include_tag "finish"
-	body
-		.hidden
-			= image_tag @category.share_img_url
-		.center
-			.finish-img
-				= image_tag @category.display_img_url
-			p == @category.text
-			a href="http://www.aloette.com" Shop now >
-			.product-placement
-				.image
-					a href="http://www.youtube.com/watch?v=gwPwqvYZFMY" target="_blank"
-						= image_tag @quiz.product_img_url
-				.copy
-					p 
-						== @quiz.product_copy
-					p: a href="http://www.youtube.com/watch?v=gwPwqvYZFMY" target="_blank" See it here
-			.share
-				p: a#share-link href="#" target="_blank" Share the results with your friends!
+= content_for :head do
+	= javascript_include_tag "finish"
+	meta property="og:title" content="I am a #{@category.title}"
+	meta property="og:url" content=url_for(only_path: false)
+	meta property="og:site_name" content="Aloette Cosmetics"
+.hidden
+	= image_tag @category.share_img_url
+.center
+	.finish-img
+		= image_tag @category.display_img_url
+	p == @category.text
+	a href="http://www.aloette.com" Shop now >
+	.product-placement
+		.image
+			a href="http://www.youtube.com/watch?v=gwPwqvYZFMY" target="_blank"
+				= image_tag @quiz.product_img_url
+		.copy
+			p 
+				== @quiz.product_copy
+			p: a href="http://www.youtube.com/watch?v=gwPwqvYZFMY" target="_blank" See it here
+	.share
+		p: a#share-link href="#" target="_blank" Share the results with your friends!

@@ -1,8 +1,8 @@
 html
 	head
-		meta property="og:image" content=@category.share_img_url
 		= javascript_include_tag "finish"
 	body
+		.hidden: = image_tag=@category.share_img_url
 		.center
 			.finish-img
 				= image_tag @category.display_img_url

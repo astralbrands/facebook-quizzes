@@ -9,6 +9,6 @@ class Category < ActiveRecord::Base
   end
 
   def share_img_url
-    "/artwork/#{}/share/#{title.parameterize}.jpg"
+    "/artwork/#{quiz.id}/share/#{title.parameterize}.jpg"
   end
 end

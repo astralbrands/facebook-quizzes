@@ -1,5 +1,7 @@
 html
 	head
+		meta name="share_img" content=@category.share_img_url
+		= javascript_include_tag "finish"
 	body
 		.center
 			.finish-img
@@ -8,10 +10,11 @@ html
 			a href="http://www.aloette.com" Shop now >
 			.product-placement
 				.image
-					a href="http://www.youtube.com/watch?v=gwPwqvYZFMY"
+					a href="http://www.youtube.com/watch?v=gwPwqvYZFMY" target="_blank"
 						= image_tag @quiz.product_img_url
 				.copy
 					p 
 						== @quiz.product_copy
-					p: a href="http://www.youtube.com/watch?v=gwPwqvYZFMY" See it here
-			p Share the results with your friends!
+					p: a href="http://www.youtube.com/watch?v=gwPwqvYZFMY" target="_blank" See it here
+			.share
+				p: a#share-link href="#" target="_blank" Share the results with your friends!

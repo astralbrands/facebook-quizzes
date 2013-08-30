@@ -1,11 +1,19 @@
 FacebookQuizzes::Application.routes.draw do
 
+  root to: 'facebook#login'
+  post '/quizzes/pocket-planner' => 'facebook#login'
+
   resources :quizzes do
     resources :categories, :answers
     resources :questions do
       post 'respond', on: :member
     end
-    get :finish
+    get 'class-rebel' => 'quizzes#class_rebel'
+    get 'band-geek' => 'quizzes#band_geek'
+    get 'cheerleader' => 'quizzes#cheerleader'
+    get 'drama-kid' => 'quizzes#drama_kid'
+    get 'prom-queen' => 'quizzes#prom_queen'
+    get 'finish'
   end
 
   resources :questions do

@@ -1,9 +1,13 @@
 html
 	head
+		= javascript_include_tag "gateway"
 	body
 		.center
 			.banner-img = image_tag @quiz.banner_url
 			.intro-content
 				.quiz-intro == @quiz.intro
 				.get-started
-					= link_to "Get Started", [@quiz, @quiz.questions.first]
+					= link_to "Start quiz", [@quiz, @quiz.questions.first]
+				.like-box
+					p Like us to get started!
+					<fb:like-box href="https://www.facebook.com/AloetteCosmetics" width="292" show_faces="true" header="true" stream="false" show_border="false"></fb:like-box>

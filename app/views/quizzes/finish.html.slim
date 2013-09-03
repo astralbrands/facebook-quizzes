@@ -1,7 +1,7 @@
 = content_for :head do
 	= javascript_include_tag "finish"
 	meta property="og:title" content="I am a #{@category.title}"
-	meta property="og:url" content="https://apps.facebook.com/aloette-quizzes/#{@category.title.parameterize}"
+	meta property="og:url" content="http://morning-anchorage-3533.herokuapp.com/quizzes/#{@quiz.slug}/#{@category.title.parameterize}"
 	meta property="og:site_name" content="Aloette Cosmetics"
 .hidden
 	= image_tag @category.share_img_url

@@ -1,3 +1,5 @@
+= content_for :title do
+	title = "I am a #{@category.title}"
 = content_for :head do
 	= javascript_include_tag "finish"
 	meta property="og:title" content="I am a #{@category.title}"

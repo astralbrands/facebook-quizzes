@@ -12,6 +12,7 @@ class QuizzesController < ApplicationController
     @question = Question.new
     @answer = Answer.new
     @category = Category.new
+    redirect_to quiz_url(@quiz)
   end
 
   def update

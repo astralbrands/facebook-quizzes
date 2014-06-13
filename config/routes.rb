@@ -8,11 +8,6 @@ FacebookQuizzes::Application.routes.draw do
     resources :questions do
       post 'respond', on: :member
     end
-    get 'class-rebel' => 'quizzes#class_rebel'
-    get 'band-geek' => 'quizzes#band_geek'
-    get 'cheerleader' => 'quizzes#cheerleader'
-    get 'drama-kid' => 'quizzes#drama_kid'
-    get 'prom-queen' => 'quizzes#prom_queen'
     get 'finish'
   end
 
@@ -25,6 +20,9 @@ FacebookQuizzes::Application.routes.draw do
   resources :categories do
     resources :answers
   end
+
+  get 'quizzes/:slug/:category_slug' => 'quizzes#result'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

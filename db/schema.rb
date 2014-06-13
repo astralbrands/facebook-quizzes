@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130829142523) do
+ActiveRecord::Schema.define(version: 20140613180030) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20130829142523) do
     t.string   "share_img_content_type"
     t.integer  "share_img_file_size"
     t.datetime "share_img_updated_at"
+    t.string   "slug"
   end
 
   add_index "categories", ["quiz_id"], name: "index_categories_on_quiz_id", using: :btree

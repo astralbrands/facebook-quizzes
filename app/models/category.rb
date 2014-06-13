@@ -4,6 +4,10 @@ class Category < ActiveRecord::Base
   has_many :answers
   belongs_to :quiz
 
+  before_validation do
+    self.slug = title.parameterize
+  end 
+
   def display_img_url
     "/artwork/#{quiz.id}/display/#{title.parameterize}.jpg"
   end

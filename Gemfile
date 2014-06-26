@@ -1,35 +1,34 @@
-ruby "2.0.0"
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.0'
+gem 'rails'
 gem 'thin'
 gem 'dotenv-rails', groups: [:development, :test]
 
 # Use postgresql as the database for Active Record
 gem 'pg'
-gem 'paperclip', :git => "git://github.com/thoughtbot/paperclip.git"
+gem 'paperclip'
 
 # Use liquid for html templating
 gem 'slim-rails'
 
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier'
 
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-gem 'therubyracer', platforms: :ruby
+#gem 'therubyracer', platforms: :ruby
 
-gem 'jquery-rails', git: 'git://github.com/rails/jquery-rails.git'
+gem 'jquery-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 1.2'
-gem "koala", git: 'git://github.com/arsduo/koala'
+gem 'jbuilder'
+gem "koala"
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -37,8 +36,10 @@ group :doc do
 end
 
 gem 'sass-rails'
-gem 'bootstrap-sass', git: 'git://github.com/thomas-mcdonald/bootstrap-sass.git', branch: '3'
-gem 'compass-rails', "~> 2.0.alpha.0"
+gem 'bootstrap-sass'
+gem 'compass-rails'
+
+gem 'proviso', path: "/Users/VGuidry/src/proviso"
 
 group :development do
   gem 'pry-rails'
@@ -53,7 +54,9 @@ gem 'rails_12factor', group: :production
 # gem 'unicorn'
 
 # Use Capistrano for deployment
-gem 'capistrano', group: :development
+gem 'capistrano', '~> 3', group: :development
+gem 'capistrano-bundler'
+gem 'capistrano-rails'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]

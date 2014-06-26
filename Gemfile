@@ -39,7 +39,9 @@ gem 'sass-rails'
 gem 'bootstrap-sass'
 gem 'compass-rails'
 
-gem 'proviso', path: "/Users/VGuidry/src/proviso"
+gem 'proviso',
+# path: "/Users/VGuidry/src/proviso",
+ git: "git@github.com:astralbrands/proviso.git"
 
 group :development do
   gem 'pry-rails'

@@ -1,5 +1,6 @@
-PATH
-  remote: /Users/VGuidry/src/proviso
+GIT
+  remote: git@github.com:astralbrands/proviso.git
+  revision: da0f14bb43ed84f08c6d60a692d4d0bf319bc89b
   specs:
     proviso (0.0.1)
       net-ssh-gateway

@@ -32,10 +32,10 @@ class QuizzesController < ApplicationController
   end
 
   def finish
-    @quiz = Quiz.from_param params[:quiz_id]
+    @quiz = Quiz.find_by_id params[:quiz_id]
     answers = session.to_hash.keep_if{|k, v| k.match(/question/)}
     @category = @quiz.get_results(answers)
-    redirect_to "/quizzes/#{@quiz.id}/#{@category.slug}"
+    redirect_to "/quizzes/#{@quiz.slug}/#{@category.slug}"
   end
 
   def result

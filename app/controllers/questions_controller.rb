@@ -6,13 +6,13 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    @quiz = Quiz.from_param params[:quiz_id]
     @question = Question.find params[:id]
+    @quiz = @question.quiz
   end
 
   def respond
-    @quiz = Quiz.from_param params[:quiz_id]
     @question = Question.find params[:id]
+    @quiz = @question.quiz
     @answer = @question.answers.find{|a| a.sequence == params[:answer_id].to_i }
     @category = @answer.category
     session["question_#{params[:id]}"] = @category.id

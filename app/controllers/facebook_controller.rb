@@ -3,6 +3,12 @@ class FacebookController < ApplicationController
 
   def login
     @quiz = Quiz.first
-    redirect_to quiz_path(@quiz)
+    redirect_to redirect_path(@quiz)
   end
+
+  private
+
+    def redirect_path(quiz)
+      quiz.nil? ? "/quizzes/new" : quiz_path(quiz)
+    end
 end

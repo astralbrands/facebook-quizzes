@@ -34,14 +34,6 @@ ActiveRecord::Schema.define(version: 20140613180030) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "quiz_id"
-    t.string   "display_img_file_name"
-    t.string   "display_img_content_type"
-    t.integer  "display_img_file_size"
-    t.datetime "display_img_updated_at"
-    t.string   "share_img_file_name"
-    t.string   "share_img_content_type"
-    t.integer  "share_img_file_size"
-    t.datetime "share_img_updated_at"
     t.string   "slug"
   end
 
@@ -65,14 +57,6 @@ ActiveRecord::Schema.define(version: 20140613180030) do
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "banner_file_name"
-    t.string   "banner_content_type"
-    t.integer  "banner_file_size"
-    t.datetime "banner_updated_at"
-    t.string   "product_img_file_name"
-    t.string   "product_img_content_type"
-    t.integer  "product_img_file_size"
-    t.datetime "product_img_updated_at"
     t.text     "product_copy"
   end
 

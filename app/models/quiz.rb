@@ -1,12 +1,14 @@
 class Quiz < ActiveRecord::Base
-  has_attached_file :banner, styles: { standard: "500x300" }, default_url: "/artwork/quiz-banner.jpg"
-  has_attached_file :product_img, styles: { standard: "150x100" }, default_url: "/artwork/quiz-product.jpg"
   has_many :questions
   has_many :categories
   validates :name, presence: true
-  validates :intro, presence: true
+  validates :slug, presence: true
   alias_method :original_questions, :questions
   alias_method :original_categories, :categories
+
+  before_validation do
+    self.slug = name.parameterize
+  end
 
   def to_param
     "#{name.parameterize}"
@@ -22,14 +24,6 @@ class Quiz < ActiveRecord::Base
 
   def questions
     original_questions.order "sequence asc"
-  end
-
-  def banner_url
-    "/artwork/#{id}/banner.jpg"
-  end
-
-  def product_img_url
-    "/artwork/#{id}/product.jpg"
   end
 
   def categories

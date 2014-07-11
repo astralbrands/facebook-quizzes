@@ -12,5 +12,17 @@ class Question < ActiveRecord::Base
   end
 
   def number
-    Hash[self.quiz.questions.to_a.map.with_index.to_a][self] + 1  end
+    Hash[self.quiz.questions.to_a.map.with_index.to_a][self] + 1
+  end
+
+  def create_answer(category)
+    unless has_answer?(category)
+      answer = Answer.new(category: category, question: self)
+      answer.save
+    end
+  end
+
+  def has_answer?(category)
+    !answers.where(category: category).empty?
+  end
 end

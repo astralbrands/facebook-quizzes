@@ -7,7 +7,6 @@ gem 'dotenv-rails', groups: [:development, :test]
 
 # Use postgresql as the database for Active Record
 gem 'pg'
-gem 'paperclip'
 
 # Use liquid for html templating
 gem 'slim-rails'
@@ -40,11 +39,14 @@ gem 'bootstrap-sass'
 gem 'compass-rails'
 
 gem 'proviso',
-# path: "/Users/VGuidry/src/proviso",
+# path: "/Users/VGuidry/src/proviso"
  git: "git@github.com:astralbrands/proviso.git"
 
 group :development do
   gem 'pry-rails'
+  gem 'guard'
+  gem 'guard-livereload', require: false
+  gem 'rack-livereload'
 end
 
 gem 'rails_12factor', group: :production

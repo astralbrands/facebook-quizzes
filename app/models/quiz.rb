@@ -36,9 +36,8 @@ class Quiz < ActiveRecord::Base
     answers.each do |k, v|
       question = Question.find{|q| q.sequence == k.gsub(/question_/, '').to_i}
       answer = question.answers.find{|a| a.sequence == v }
-      weight = question.weight
+      weight = question.weight || 0
       category = answer.category
-      x = {question: question, answer: answer, weight: weight, category: category}
       results[category.id] += weight
     end
     most_responded_category = results.max_by{|k, v| v }.first

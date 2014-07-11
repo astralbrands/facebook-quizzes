@@ -8,4 +8,6 @@
   meta property="og:site_name" content="Aloette Cosmetics"
   == content_for :facebook_share_img  
 = content_for :hidden_img
-== render "#{slug}/finish"
+#container.center
+  == render "header"
+  == render "#{slug}/finish"

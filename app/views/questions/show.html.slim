@@ -1,4 +1,6 @@
 html
 	head
 	body
-		== render "#{slug}/question"
+    #container.center
+      == render 'quizzes/header'
+      == render "#{slug}/question"

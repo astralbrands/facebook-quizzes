@@ -1,7 +1,9 @@
 html
-	head
-	body
-		- if @quiz.nil?
-			| No quizzes!
-		- else
-			== render "#{slug}/intro"
+  head
+  body
+    #container.center
+      - if @quiz.nil?
+        | No quizzes!
+      - else
+        == render "header"
+        == render "#{slug}/intro"

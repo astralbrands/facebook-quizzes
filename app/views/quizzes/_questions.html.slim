@@ -16,7 +16,7 @@
             = f.text_field :content, class: 'form-control content', placeholder: "Enter text for answer"
             = f.hidden_field(:category, value: answer.category.id)
             = f.hidden_field(:question_id, value: question.id)
-            = f.submit 'Add', class: "btn btn-default"
+            = f.submit 'Edit', class: "btn btn-default"
   #new
     = form_for([@quiz, @question], html: { role: "form", class: "form-inline" }) do |f|
       = f.text_field :text, class: 'form-control text', id: 'new-question', placeholder: "Enter text for new question"

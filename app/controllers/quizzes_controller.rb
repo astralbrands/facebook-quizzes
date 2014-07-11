@@ -17,8 +17,7 @@ class QuizzesController < ApplicationController
   def update
     @quiz = Quiz.from_param params[:id]
     @quiz.update quiz_params
-    @quiz.slug = @quiz.name.parameterize
-    @quiz.save
+    @quiz.save!
     redirect_to edit_quiz_url(@quiz)
   end
 
@@ -28,9 +27,7 @@ class QuizzesController < ApplicationController
 
   def create
     quiz = Quiz.create(quiz_params)
-    quiz.slug = quiz.name.parameterize
-    quiz.banner = params[:quiz][:banner]
-    quiz.save
+    quiz.save!
     redirect_to edit_quiz_url(quiz)
   end
 
@@ -38,7 +35,7 @@ class QuizzesController < ApplicationController
     @quiz = Quiz.from_param params[:quiz_id]
     answers = session.to_hash.keep_if{|k, v| k.match(/question/)}
     @category = @quiz.get_results(answers)
-    redirect_to "/quizzes/#{@quiz.id}/#{@category.id}"
+    redirect_to "/quizzes/#{@quiz.id}/#{@category.slug}"
   end
 
   def result
@@ -49,6 +46,6 @@ class QuizzesController < ApplicationController
 
   private
     def quiz_params
-      params.require(:quiz).permit(:name, :intro, :banner, :product_copy)
+      params.require(:quiz).permit(:name, :intro, :title, :product_copy)
     end
 end

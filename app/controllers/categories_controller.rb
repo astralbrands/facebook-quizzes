@@ -2,8 +2,6 @@ class CategoriesController < ApplicationController
   def create
     @quiz = Quiz.from_param params[:quiz_id]
     @category = @quiz.categories.create(category_params)
-    @category.display_img = params[:category][:display_img]
-    @category.share_img = params[:category][:share_img]
     redirect_to edit_quiz_path(@quiz)
   end
 
@@ -22,6 +20,6 @@ class CategoriesController < ApplicationController
 
   private
     def category_params
-      params.require(:category).permit(:title, :text, :display_img, :share_img)
+      params.require(:category).permit(:title, :text, :statement)
     end
 end

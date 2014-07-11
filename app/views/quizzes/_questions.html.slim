@@ -1,0 +1,23 @@
+#questions.row
+  h2 Questions + Answers
+  .edit
+    - for question in @quiz.questions
+      = form_for(question, html: { role: "form", class: "form-inline details" }) do |f|
+        = f.text_field :sequence, class: 'form-control seq', placeholder: "Seq."
+        = f.text_field :weight, class: 'form-control weight', placeholder: "Wt."
+        = f.text_field :text, class: 'form-control text'
+        = f.submit 'Update', class: "btn btn-default"
+        = link_to "Delete", question, class: "form-control btn btn-default delete-question", method: :delete
+      - for answer in question.answers
+        = form_for(question.answer_from_category(answer.category), html: { role: "form", class: "form-inline answer" } ) do |f|
+          .form-group
+            span.form-control-static.category = answer.category.title
+            = f.text_field :sequence, class: 'form-control seq', placeholder: "Seq."
+            = f.text_field :content, class: 'form-control content', placeholder: "Enter text for answer"
+            = f.hidden_field(:category, value: answer.category.id)
+            = f.hidden_field(:question_id, value: question.id)
+            = f.submit 'Add', class: "btn btn-default"
+  #new
+    = form_for([@quiz, @question], html: { role: "form", class: "form-inline" }) do |f|
+      = f.text_field :text, class: 'form-control text', id: 'new-question', placeholder: "Enter text for new question"
+      = f.submit 'Create', class: "btn btn-default"

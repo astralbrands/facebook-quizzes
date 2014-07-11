@@ -1,28 +1,11 @@
 = content_for :title do
-	title = "I am a #{@category.title}"
+  title = @category.statement
 = content_for :head do
-	= javascript_include_tag "finish"
-	meta property="og:title" content="I am a #{@category.title}"
-	meta property="og:url" content="http://morning-anchorage-3533.herokuapp.com/quizzes/#{@quiz.slug}/#{@category.title.parameterize}"
-	meta property="og:description" content=@category.text
-	meta property="og:image" content="http://morning-anchorage-3533.herokuapp.com/artwork/#{@quiz.id}/share/#{@category.title.parameterize}.jpg"
-	meta property="og:site_name" content="Aloette Cosmetics"
-.hidden
-	= image_tag @category.share_img_url
-.center
-	.finish-img
-		= image_tag @category.display_img_url
-	p == @category.text
-	a href="http://www.aloette.com" Shop now >
-	.product-placement
-		.image
-			a href="http://www.youtube.com/watch?v=gwPwqvYZFMY" target="_blank"
-				= image_tag @quiz.product_img_url
-		.copy
-			p 
-				== @quiz.product_copy
-			p: a href="http://www.youtube.com/watch?v=gwPwqvYZFMY" target="_blank" See it here
-	.share
-		p: a#share-link href="#" target="_blank" Share the results with your friends!
-	.retake
-		p: a#retake-link href="http://apps.facebook.com/aloette-quizzes" Take the quiz yourself!
+  = javascript_include_tag "finish"
+  meta property="og:title" content=@category.statement
+  meta property="og:url" content="http://vanity.astralbrands.com/quizzes/#{@quiz.slug}/#{@category.slug}"
+  meta property="og:description" content=@category.text
+  meta property="og:site_name" content="Aloette Cosmetics"
+  == content_for :facebook_share_img  
+= content_for :hidden_img
+== render "#{slug}/finish"

@@ -1,0 +1,15 @@
+#images
+  .row
+    h2 Images
+    .edit-block
+      img class="product" src=@quiz.product_img.url
+      = form_for @quiz do |f|
+        .form-group
+          = f.file_field :product_img, class: "form-control"
+          = f.submit "Change", class: "form-control"
+    .edit-block
+      img class="banner" src=@quiz.banner.url
+      = form_for @quiz do |f|
+        .form-group
+          = f.file_field :banner, class: "form-control"
+          = f.submit "Change", class: "form-control"

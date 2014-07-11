@@ -1,0 +1,6 @@
+.center.intro
+  .banner = image_tag "#{slug}/header.jpg"
+  .content
+    .introduction == @quiz.intro
+    .get-started
+      = link_to "Start quiz", @quiz.questions.first

@@ -1,16 +1,4 @@
 html
 	head
 	body
-		.center
-			.banner-img
-				= image_tag @quiz.banner_url
-			h3 == @question.text
-			.answers
-				= form_tag respond_quiz_question_path, method: 'post' do
-					- for answer in @question.answers
-						.radio
-							label
-								= radio_button_tag :answer_id, answer.category.id, class: "answer-input"
-								= answer.content.to_s
-					= submit_tag "Next", class: "btn btn-default question-submit"
-					.qnumber Question ##{@question.number} of #{@question.answers.length}
+		== render "#{slug}/question"

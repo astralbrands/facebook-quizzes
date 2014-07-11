@@ -1,0 +1,10 @@
+.row#details
+  = form_for(@quiz, html: { role: "form", class: "form-inline" }) do |f|
+    .form-group
+      = f.text_field :name, class: 'form-control'
+      = f.submit 'Update', class: "btn btn-default", text: "Update"
+      = link_to "View", @quiz, class: "form-control btn btn-default"
+    .clear
+    .form-group.quiz-text-group
+      .intro.textarea-label Quiz Intro
+      = f.text_area :intro, class: 'form-control'

@@ -1,6 +1,9 @@
 #finish
-  #header
-    = image_tag "a_list_lash/header.jpg"
+  - content_for :facebook_share_img do
+    meta property="og:image" content="http://vanity.astralbrands.com/assets/a_list_lash/celeb_KateMiddleton_300x300.jpg"
+  - content_for :hidden_img do
+    .hidden
+      = image_tag "a_list_lash/celeb_KateMiddleton_300x300.jpg"
   #body
     #title
       | You are Kate Middleton!

@@ -32,7 +32,7 @@ class QuestionsController < ApplicationController
   def destroy
     @question = Question.find params[:id]
     @quiz = @question.quiz
-    @question.answers.destroy
+    @question.answers.each(&:delete)
     @question.destroy
     redirect_to edit_quiz_url(@quiz)
   end

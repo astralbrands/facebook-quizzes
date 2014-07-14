@@ -6,9 +6,12 @@ class Category < ActiveRecord::Base
     record.quiz.questions.collect{|question| question.has_answer?(record)}.all?{|i| i == true }
   end
 
-  after_create do
+  before_validation do
     self.slug = title.parameterize
-    self.text = "" if self.text.nil?
+    self.text = "" if self.text.nil?    
+  end
+
+  after_create do
     quiz.questions.each do |question|
       question.create_answer(self)
     end

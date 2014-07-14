@@ -3,7 +3,8 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails'
 gem 'thin'
-gem 'dotenv-rails', groups: [:development, :test]
+gem 'dotenv'
+gem 'dotenv-rails'
 
 # Use postgresql as the database for Active Record
 gem 'pg'

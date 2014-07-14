@@ -1,0 +1,7 @@
+#lib/capistrano/tasks/write_environment.cap
+desc "Copies the environment file to the project root"
+task :write_environment do
+  on roles(:app) do
+    execute "cp #{fetch(:deploy_to)}/environment #{release_path}/.env"
+  end
+end

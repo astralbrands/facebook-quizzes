@@ -25,4 +25,12 @@ class Question < ActiveRecord::Base
   def has_answer?(category)
     !answers.where(category: category).empty?
   end
+
+  def make_answers
+    quiz.categories.each{|category| create_answer(category)}
+  end
+
+  after_create do
+    make_answers
+  end
 end

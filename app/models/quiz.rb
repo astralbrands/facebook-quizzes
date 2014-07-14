@@ -1,6 +1,6 @@
 class Quiz < ActiveRecord::Base
-  has_many :questions
-  has_many :categories
+  has_many :questions, dependent: :destroy
+  has_many :categories, dependent: :destroy
   validates :name, presence: true
   validates :slug, presence: true
   alias_method :original_questions, :questions

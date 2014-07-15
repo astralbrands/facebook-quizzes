@@ -34,8 +34,9 @@ class Quiz < ActiveRecord::Base
     results = {}
     categories.each {|c| results[c.id] = 0 }
     answers.each do |k, v|
-      question = questions.find{|q| q.sequence == k.gsub(/question_/, '').to_i }
-      answer = question.answers.find{|a| a.sequence == v }
+      question = questions.find{|q| q.id == k.gsub(/question_/, '').to_i }
+      binding.pry if question.nil?
+      answer = question.answers.find{|a| a.category_id == v }
       weight = question.weight || 1
       category = answer.category
       results[category.id] += weight

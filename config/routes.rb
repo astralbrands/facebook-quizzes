@@ -9,6 +9,7 @@ FacebookQuizzes::Application.routes.draw do
       post 'respond', on: :member
     end
     get 'finish'
+    get 'start'
   end
 
   resources :questions do

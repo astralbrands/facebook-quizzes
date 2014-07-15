@@ -31,6 +31,12 @@ class QuizzesController < ApplicationController
     redirect_to edit_quiz_url(quiz)
   end
 
+  def start
+    @quiz = Quiz.from_param(params[:quiz_id])
+    clear_session
+    redirect_to @quiz.questions.first
+  end
+
   def finish
     @quiz = Quiz.find_by_id params[:quiz_id]
     answers = session.to_hash.keep_if{|k, v| k.match(/question/)}
@@ -47,5 +53,9 @@ class QuizzesController < ApplicationController
   private
     def quiz_params
       params.require(:quiz).permit(:name, :intro, :title, :product_copy)
+    end
+
+    def clear_session
+      session.to_hash.keep_if{|k, v| k =~ /question_/ }.each{|k, v| session.delete(k) }
     end
 end

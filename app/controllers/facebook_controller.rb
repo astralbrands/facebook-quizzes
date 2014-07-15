@@ -14,6 +14,6 @@ class FacebookController < ApplicationController
     end
 
     def allow_iframe
-      response.headers.except! ["X-Frame-Options"]
+      response.headers["X-Frame-Options"] = "GOFORIT"
     end
 end

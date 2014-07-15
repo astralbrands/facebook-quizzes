@@ -1,7 +1,7 @@
 FacebookQuizzes::Application.routes.draw do
 
   root to: 'facebook#login'
-  post '/quizzes/pocket-planner' => 'facebook#login'
+  post '/' => 'facebook#login'
 
   resources :quizzes do
     resources :categories, :answers

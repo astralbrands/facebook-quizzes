@@ -1,6 +1,4 @@
 class FacebookController < ApplicationController
-  force_ssl unless Rails.env.development?
-
   skip_before_filter :verify_authenticity_token, only: :login
   after_filter :allow_iframe
 

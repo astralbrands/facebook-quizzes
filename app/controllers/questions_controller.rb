@@ -13,7 +13,7 @@ class QuestionsController < ApplicationController
   def respond
     @question = Question.find params[:id]
     @quiz = @question.quiz
-    @answer = @question.answers.find{|a| a.sequence == params[:answer_id].to_i }
+    @answer = @question.answers.find{|a| a.category_id == params[:answer_id].to_i }
     @category = @answer.category
     session["question_#{params[:id]}"] = @category.id
     next_question = @quiz.questions.find{|q| q.sequence == @question.sequence + 1 }

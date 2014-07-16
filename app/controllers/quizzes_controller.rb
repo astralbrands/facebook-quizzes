@@ -45,7 +45,7 @@ class QuizzesController < ApplicationController
 
   def result
     @quiz = Quiz.find_by_slug(params["slug"])
-    unless answers.length.zero?
+    unless redirect_to_start?
       @category = @quiz.categories.find_by_slug params["category_slug"]
       render template: "quizzes/finish"
     else
@@ -54,6 +54,14 @@ class QuizzesController < ApplicationController
   end
 
   private
+    def redirect_to_start?
+      is_facebook? || answers.length.zero?
+    end
+
+    def is_facebook?
+      request.user_agent =~ /facebookexternalhit/ || request.user_agent =~ /Facebot/
+    end
+
     def answers
       session.to_hash.keep_if{|k, v| k.match(/question/)}
     end

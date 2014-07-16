@@ -55,11 +55,19 @@ class QuizzesController < ApplicationController
 
   private
     def redirect_to_start?
-      is_facebook? || answers.length.zero?
+      return false if is_facebook?
+      return true if has_answers?
+      return false
     end
 
     def is_facebook?
-      request.user_agent =~ /facebookexternalhit/ || request.user_agent =~ /Facebot/
+      return true if request.user_agent =~ /facebookexternalhit/
+      return true if request.user_agent =~ /Facebot/
+      return false
+    end
+
+    def has_answers?
+      answers.length.zero?
     end
 
     def answers

@@ -49,7 +49,7 @@ class QuizzesController < ApplicationController
       @category = @quiz.categories.find_by_slug params["category_slug"]
       render template: "quizzes/finish"
     else
-      redirect_to @quiz
+      redirect_to "https://apps.facebook.com/aloette-quizzes"
     end
   end
 

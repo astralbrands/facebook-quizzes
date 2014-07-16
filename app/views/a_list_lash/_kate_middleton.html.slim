@@ -1,7 +1,8 @@
 #finish
-  - content_for :facebook_share_img do
+  = content_for :head do
     meta property="og:image" content="http://vanity.astralbrands.com/assets/a_list_lash/celeb_KateMiddleton_300x300.jpg"
-  - content_for :hidden_img do
+    meta property="og:image:secure_url" content="https://vanity.astralbrands.com/assets/a_list_lash/celeb_KateMiddleton_300x300.jpg"
+  = content_for :hidden_img do
     .hidden
       = image_tag "a_list_lash/celeb_KateMiddleton_300x300.jpg"
   #body
@@ -25,4 +26,4 @@
     #consult-photo
       = image_tag "a_list_lash/consult_BonnieBradley_300x300.jpg"
     p Since joining Aloette in 2006, Bonnie Bradley has quickly risen to the top in sales and sharing the Aloette Opportunity. As the Executive Director of Upstate South Carolina, she is proud to lead the second largest Aloette team in the United States./ Ce style VIP a été créé par Bonnie Bradley! Depuis qu’elle a débuté chez Aloette en 2006, Bonnie est rapidement devenue l’une des meilleures vendeuses et l’une des meilleures pour partager l’opportunité d’affaires d’Aloette. En tant que directrice exécutive du nord de la Caroline du Sud, elle est fière d’être à la tête de la deuxième plus grande équipe Aloette aux États-Unis.
-    .fb-share-button data-href="http://vanity.astralbrands.com/a-list-lash/kate"
+    .fb-share-button data-href="https://vanity.astralbrands.com/quizzes/a-list-lash/kate-middleton"

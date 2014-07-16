@@ -9,4 +9,6 @@ html xmlns:fb="http://ogp.me/ns/fb#"
 		= content_for?(:head) ? yield(:head) : ""
 	body
 		#fb-root
+		= content_for?(:hidden_img) ? yield(:hidden_img) : ""
 		= yield
+		= render 'quizzes/facebook_js'

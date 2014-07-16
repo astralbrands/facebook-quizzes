@@ -39,18 +39,25 @@ class QuizzesController < ApplicationController
 
   def finish
     @quiz = Quiz.find_by_id params[:quiz_id]
-    answers = session.to_hash.keep_if{|k, v| k.match(/question/)}
     @category = @quiz.get_results(answers)
     redirect_to "/quizzes/#{@quiz.slug}/#{@category.slug}"
   end
 
   def result
     @quiz = Quiz.find_by_slug(params["slug"])
-    @category = @quiz.categories.find_by_slug params["category_slug"]
-    render template: "quizzes/finish"
+    unless answers.length.zero?
+      @category = @quiz.categories.find_by_slug params["category_slug"]
+      render template: "quizzes/finish"
+    else
+      redirect_to @quiz
+    end
   end
 
   private
+    def answers
+      session.to_hash.keep_if{|k, v| k.match(/question/)}
+    end
+
     def quiz_params
       params.require(:quiz).permit(:name, :intro, :title, :product_copy)
     end

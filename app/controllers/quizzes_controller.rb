@@ -55,6 +55,7 @@ class QuizzesController < ApplicationController
 
   private
     def redirect_to_start?
+      return false if Rails.env.development?
       return false if is_facebook?
       return true if has_answers?
       return false

@@ -5,7 +5,7 @@ class Question < ActiveRecord::Base
   validates :sequence, presence: true
   alias_method :original_answers, :answers
 
-  before_validation do
+  before_validation(on: :create) do
     self.sequence = quiz.questions.length + 1
   end
 

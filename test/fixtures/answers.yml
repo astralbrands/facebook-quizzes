@@ -1,9 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
-one:
-  content: MyString
-  category_id: 
-
-two:
-  content: MyString
-  category_id: 

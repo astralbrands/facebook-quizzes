@@ -3,7 +3,7 @@ class FacebookController < ApplicationController
   after_filter :allow_iframe
 
   def login
-    @quiz = Quiz.first
+    @quiz = Quiz.last
     redirect_to redirect_path(@quiz)
   end
 

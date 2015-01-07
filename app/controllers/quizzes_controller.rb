@@ -53,6 +53,11 @@ class QuizzesController < ApplicationController
     end
   end
 
+  def retake
+    @quiz = Quiz.last
+    redirect_to @quiz
+  end
+
   private
     def redirect_to_start?
       return false if Rails.env.development?

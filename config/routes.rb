@@ -2,6 +2,7 @@ FacebookQuizzes::Application.routes.draw do
 
   root to: 'facebook#login'
   post '/' => 'facebook#login'
+  get '/retake' => 'quizzes#retake'
 
   resources :quizzes do
     resources :categories, :answers

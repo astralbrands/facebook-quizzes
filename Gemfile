@@ -1,67 +1,24 @@
 source 'https://rubygems.org'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails'
-gem 'thin'
-gem 'dotenv'
-gem 'dotenv-rails'
-
-# Use postgresql as the database for Active Record
 gem 'pg'
-
-# Use liquid for html templating
-gem 'slim-rails'
-
-# Use Uglifier as compressor for JavaScript assets
+gem 'sass-rails'
 gem 'uglifier'
-
-# Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails'
-
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-#gem 'therubyracer', platforms: :ruby
-
 gem 'jquery-rails'
-
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
+gem 'unicorn'
+gem 'unicorn-rails'
 
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'slim-rails'
 gem 'jbuilder'
 gem "koala"
-
-group :doc do
-  # bundle exec rake doc:rails generates the API under doc/api.
-  gem 'sdoc', require: false
-end
-
-gem 'sass-rails'
 gem 'bootstrap-sass'
 gem 'compass-rails'
 
-gem 'proviso',
-# path: "/Users/VGuidry/src/proviso"
- git: "git@github.com:astralbrands/proviso.git"
-
 group :development do
   gem 'pry-rails'
-  gem 'guard'
-  gem 'guard-livereload', require: false
-  gem 'rack-livereload'
+  gem 'rb-readline'
+  gem 'capistrano-rails'
+  gem 'capistrano-passenger'
 end
-
-gem 'rails_12factor', group: :production
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-gem 'capistrano', '~> 3', group: :development
-gem 'capistrano-bundler'
-gem 'capistrano-rails'
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]

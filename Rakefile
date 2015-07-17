@@ -4,6 +4,3 @@
 require File.expand_path('../config/application', __FILE__)
 
 FacebookQuizzes::Application.load_tasks
-
-spec = Gem::Specification.find_by_name 'proviso'
-load "#{spec.gem_dir}/lib/tasks/provisioning.rake"

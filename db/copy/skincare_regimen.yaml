@@ -1,0 +1,73 @@
+questions:
+  -
+    question: "What is your age / Quel âge avez-vous?"
+    answers:
+      a: "35+ / 35 ans et plus"
+      b: "25 – 35 / Entre 25 et 35 ans"
+      c: "Under 20 / Moins de 20 ans"
+  -
+    question: "What best describes your skin type? / Qu'est-ce qui décrit le mieux votre type de peau?"
+    answers:
+      a: "Dry / Sèche"
+      b: "Combination / Mixte"
+      c: "Oily / Grasse"
+  -
+    question: What best describes your skin’s top concerns? / Qu'est-ce qui décrit le mieux les principales préoccupations pour votre peau?
+    answers:
+      a: "Lines & Wrinkles, Firming, Discoloration / Rides & Ridules, Fermeté, Décoloration"
+      b: "Dehydration, Visible Pores, Dark Circles / Déshydratation, Pores Visibles, Cernes"
+      c: "Oiliness, Blemishes & Breakouts, Sensitivity/Redness / Aide à contrôler la production de Sébum, les Imperfections, les Éruptions Cutanées, la Sensibilité/Rougeur"
+  -
+    question: "How often do you break out? / A qu'elle fréquence avez-vous des éruptions cutanées?"
+    answers:
+      a: "Almost never / Presque jamais"
+      b: "Sometimes/a few blemishes a month / Parfois/ quelques imperfections par mois"
+      c: "Frequently/at least every week / Fréquemment/ au moins chaque semaine"
+  -
+    question: "What are your beauty goals? / Quels sont vos objectifs de beauté?"
+    answers:
+      a: "I want to correct my age concerns now / Je tiens à corriger mes préoccupations d'âge maintenant"
+      b: "I’m all about preventing problems before they start. / Je fais tout pour prévenir les problèmes avant qu'ils ne commencent"
+      c: "I want my skin cleared up ASAP / Je veux une peau éclaircie le plus tôt possible"
+
+categories:
+  a:
+    call_out: "You’re a Platinum Rock Star! / Vous êtes une étoile Platine!"
+    blurb: >
+      This power-packed collection delivers maximum firming results while
+      brightening, alleviating stressful lines and wrinkles while turning
+      back the effects of time.
+
+      Cette collection puissant délivre le maximum de résultats raffermissant
+      tout en éclaircissant la peau, atténuer les lignes de stress et les
+      rides tout en faisant inverser les effets du temps.
+    link:
+      text: "Try Platinum Plus >"
+      href: ""
+  b:
+    call_out: "You’re an Aloepure Beauty! / Vous êtes une beauté Aloepure!"
+    blurb: >
+      Prevent future signs of aging with a combination of botanical
+      ingredients and Aloette’s proprietary Aloeganic aloe vera that
+      delivers maximum youth-restoring results. 
+
+      Prévenir les signes du vieillissement à venir avec une combinaison
+      d’ingrédients botaniques et propriétaire d’Aloette, l’aloès vera
+      Aloganic qui offre le maximum de résultats de jeunesse.
+    link:
+      text: "Try Aloepure Plus"
+      href: ""
+  c:
+    call_out: "Take Control with Aloeclear! / Prenez le contrôle avec Aloeclear!"
+    blurb: >
+      The Clear Skin Revolution starts here. This collection deep cleans,
+      soothes, and hydrates the skin while fighting blemishes for
+      long-lasting clear skin. 
+
+      La Révolution d’une Peau Claire commence ici.  Cette collection
+      nettoie en profondeur, apaise et hydrate la peau tout en luttant
+      contre les imperfections de la peau pour une peau claire de longue
+      durée.
+    link:
+      text: "Try Aloeclear Plus"
+      href: ""

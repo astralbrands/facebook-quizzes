@@ -1,0 +1,18 @@
+#finish
+  - content_for :head do
+    meta property="og:image" content="http://vanity.astralbrands.com/assets/skincare_regimen/C.jpg"
+    meta property="og:image:secure_url" content="https://vanity.astralbrands.com/assets/skincare_regimen/C.jpg"
+  - content_for :hidden_img do
+    .hidden
+      = image_tag "skincare_regimen/C.jpg"
+  #body
+    #title
+      = @category.statement
+    #result-photo
+      = image_tag "skincare_regimen/C.jpg"
+    - for line in @category.text.each_line
+      p = line
+    ul
+      li: a href=@category.product_link
+        = @category.product_call_out
+.share: .fb-share-button data-href="https://vanity.astralbrands.com/quizzes/skincare_regimen/c"

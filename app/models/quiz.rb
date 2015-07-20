@@ -33,7 +33,12 @@ class Quiz < ActiveRecord::Base
       if c = Category.find_by(title: name)
         c.update(text: blurb, quiz: quiz, statement: call_out)
       else
-        Category.create(title: name, text: blurb, quiz: quiz, statement: call_out)
+        Category.create(title: name,
+                        text: blurb,
+                        quiz: quiz,
+                        statement: call_out,
+                        product_call_out: link_text,
+                        product_link: link_href)
       end
     end
     object["questions"].each do |question|

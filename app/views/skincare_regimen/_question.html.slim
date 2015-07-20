@@ -1,0 +1,13 @@
+#question
+  #body
+    h3 == @question.text
+    = form_tag respond_quiz_question_path(@quiz.id, @question.id), method: 'post' do
+      #answers
+        - for answer in @question.answers
+          .radio
+            label
+              = radio_button_tag :answer_id, answer.category.id, false, required: true, class: ""
+              = answer.content.to_s
+      #footer
+        = submit_tag "Next", class: "btn btn-default"
+        #qnumber: .text Question ##{@question.number} of #{@quiz.questions.length}

@@ -14,11 +14,15 @@ class Quiz < ActiveRecord::Base
     "#{name.parameterize}"
   end
 
-  def self.from_yaml(name)
-    file_name = "./db/copy/#{name}.yaml"
+  def self.process_yaml_files
+    Dir['./db/copy/*.yaml'].each do |file|
+      from_yaml file
+    end
+  end
+
+  def self.from_yaml(file_name)
+    name = File.basename(file_name, '.yaml')
     object = YAML.load(IO.read(file_name))
-    quiz = Quiz.find_or_create_by(name: name)
-    quiz.destroy
     quiz = Quiz.find_or_create_by(name: name)
     object["categories"].each do |category|
       name = category[0]
@@ -26,10 +30,11 @@ class Quiz < ActiveRecord::Base
       blurb = category[1]["blurb"]
       link_text = category[1]["link"]["text"]
       link_href = category[1]["link"]["href"]
-      Category.find_or_create_by(title: name,
-                                 text: blurb,
-                                 quiz: quiz,
-                                 statement: call_out)
+      if c = Category.find_by(title: name)
+        c.update(text: blurb, quiz: quiz, statement: call_out)
+      else
+        Category.create(title: name, text: blurb, quiz: quiz, statement: call_out)
+      end
     end
     object["questions"].each do |question|
       q = Question.find_or_create_by(quiz: quiz,

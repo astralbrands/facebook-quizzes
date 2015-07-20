@@ -21,7 +21,7 @@ test:
 
 production:
   <<: *default
-  database: <%= ENV["PRODUCTION_DB_DBNAME"] %>
-  host:     <%= ENV["PRODUCTION_DB_HOSTNAME"] %>
-  username: <%= ENV["PRODUCTION_DB_USERNAME"] %>
-  password: <%= ENV["PRODUCTION_DB_PASSWORD"] %>
+  database: vanity_production
+  host:     127.0.0.1
+  username: vanity
+  password: Int3rt3l

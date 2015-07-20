@@ -34,15 +34,9 @@ set :deploy_to, '/home/deploy/vanity'
 # Default value for keep_releases is 5
 # set :keep_releases, 5
 
-namespace :deploy do
+set :passenger_restart_with_touch, true
 
-  desc 'Restart application'
-  task :restart do
-    on roles(:app), in: :sequence, wait: 5 do
-      # Your restart mechanism here, for example:
-      execute 'sudo service vanity restart'
-    end
-  end
+namespace :deploy do
 
   after :publishing, :restart
   after :updating, 'write_environment'

@@ -1,0 +1,8 @@
+passenger start \
+  --port 11000 \
+  --ssl \
+  --ssl-port 11001 \
+  --ssl-certificate /home/deploy/vanity/ssl/vanity.astralbrands.com.crt \
+  --ssl-certificate-key /home/deploy/vanity/ssl/vanity.astralbrands.com.key \
+  -e production \
+  vanity/current

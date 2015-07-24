@@ -1,0 +1,7 @@
+passenger start \
+  --port 11000 \
+  --ssl \
+  --ssl-port 11001 \
+  --ssl-certificate /home/vince/.ssh/ssl/vanity.astralbrands.com.crt \
+  --ssl-certificate-key /home/vince/.ssh/ssl/vanity.astralbrands.com.key \
+  -e development

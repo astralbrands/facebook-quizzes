@@ -50,4 +50,12 @@ namespace :deploy do
     end
   end
 
+  task :start do
+    on roles(:app), in: :sequence, wait: 1 do
+      within release_path do
+        execute "bin/start"
+      end
+    end
+  end
+
 end

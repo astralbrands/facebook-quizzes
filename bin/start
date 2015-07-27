@@ -1,4 +1,5 @@
 cd && passenger start \
+	-d \
   --port 11000 \
   --ssl \
   --ssl-port 11001 \

@@ -40,7 +40,7 @@ class QuizzesController < ApplicationController
   def finish
     @quiz = Quiz.find_by_id params[:quiz_id]
     @category = @quiz.get_results(answers)
-    redirect_to "/quizzes/#{@quiz.slug}/#{@category.slug}"
+    redirect_to "/#{@quiz.slug}_#{@category.slug}"
   end
 
   def result
